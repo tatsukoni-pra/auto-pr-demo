@@ -9,6 +9,7 @@ on:
 env:
   MERGE_TARGET_BRANCH: prod
   PR_TITLE: Main to Prod PR
+  PR_TEMPLATE: .github/pr_template.md
 
 jobs:
   build:
@@ -21,4 +22,4 @@ jobs:
 
       - name: Create Pull Request
         run: |
-          gh pr create -B "${{ env.MERGE_TARGET_BRANCH }}" -t "${{ env.PR_TITLE }}" -b "Sample PR"
+          gh pr create -B "${{ env.MERGE_TARGET_BRANCH }}" -t "${{ env.PR_TITLE }}" -T "${{ env.PR_TEMPLATE }}"
