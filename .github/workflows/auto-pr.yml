@@ -20,6 +20,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      # TODO: 既にPR作成済の場合はスキップ
+
+      # TODO: PR差分ない場合はどうなるか(スキップしたい)
+
       - name: Create Pull Request
         run: |
           gh pr create -B "${{ env.MERGE_TARGET_BRANCH }}" -t "${{ env.PR_TITLE }}" -F "${{ env.PR_TEMPLATE }}"
