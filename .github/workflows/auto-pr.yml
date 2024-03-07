@@ -23,4 +23,6 @@ jobs:
       - name: Create Pull Request
         run: |
           pwd
+          ls -a
+          ls -a .github
           gh pr create -B "${{ env.MERGE_TARGET_BRANCH }}" -t "${{ env.PR_TITLE }}" -F "${{ env.PR_TEMPLATE }}"
