@@ -6,12 +6,19 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  MERGE_TARGET_BRANCH: prod
+  PR_TITLE: Main to Prod PR
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Hello
-        run: echo "Hello, world!"
+      - name: Create Pull Request
+        run: |
+          gh pr create -B "${{ env.MERGE_TARGET_BRANCH }}" -t "${{ env.PR_TITLE }}" -b "SamplePR"
