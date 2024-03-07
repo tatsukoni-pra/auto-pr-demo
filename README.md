@@ -7,3 +7,7 @@
 をつけないと、権限エラーでスクリプトが失敗する。
 
 ![スクリーンショット 2024-03-08 0 50 58](https://github.com/tatsukoni-pra/auto-pr-demo/assets/90994143/5f04976a-11ef-4c89-830f-2a7f615c2c2e)
+
+## 参考記事
+- https://zenn.dev/kshida/articles/auto-generate-release-pr-with-github-actions
+- https://cli.github.com/manual/gh_pr_create
