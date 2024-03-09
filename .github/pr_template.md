@@ -2,5 +2,5 @@
 Sample PR Template
 
 ## Sample H2
-Sample PR Template<br>
+Sample PR<br>
 Test String
