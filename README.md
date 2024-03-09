@@ -14,6 +14,12 @@
 
 ![スクリーンショット 2024-03-10 0 57 41](https://github.com/tatsukoni-pra/auto-pr-demo/assets/90994143/860f5366-ea35-4b12-99bc-1546df8c2761)
 
+## Prod to Main のPRをmainブランチにマージした際の挙動
+- prod宛のPRが自動作成される
+- marge PR が差分として表示される（[PR](https://github.com/tatsukoni-pra/auto-pr-demo/pull/9)）
+
+![スクリーンショット 2024-03-10 1 07 08](https://github.com/tatsukoni-pra/auto-pr-demo/assets/90994143/4eacb642-fb4f-4484-88d9-b6d5dc4010bd)
+
 # 参考記事
 - https://zenn.dev/kshida/articles/auto-generate-release-pr-with-github-actions
 - https://cli.github.com/manual/gh_pr_create
