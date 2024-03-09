@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 env:
-  MERGE_TARGET_BRANCH: prod
-  PR_TITLE: Main to Prod PR
+  BASE_BRANCH: main
+  TARGET_BRANCH: prod
   PR_TEMPLATE: .github/pr_template.md
 
 jobs:
@@ -20,10 +20,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # TODO: 既にPR作成済の場合はスキップ
-
-      # TODO: PR差分ない場合はどうなるか(スキップしたい)
+      - name: Check if PR exists
+        run: |
+          echo "EXIT_PR_COUNT=$(gh pr list -B ${{ env.TARGET_BRANCH }} -H ${{ env.BASE_BRANCH }} | wc -l)" >> $GITHUB_ENV
 
       - name: Create Pull Request
+        if: ${{ env.EXIT_PR_COUNT == 0 }}
         run: |
-          gh pr create -B "${{ env.MERGE_TARGET_BRANCH }}" -t "${{ env.PR_TITLE }}" -F "${{ env.PR_TEMPLATE }}"
+          gh pr create \
+          -B "${{ env.TARGET_BRANCH }}" \
+          -H ${{ env.BASE_BRANCH }} \
+          -t "${{ env.BASE_BRANCH }} to ${{ env.TARGET_BRANCH }} PR" \
+          -F "${{ env.PR_TEMPLATE }}"
